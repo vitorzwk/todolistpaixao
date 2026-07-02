@@ -69,7 +69,7 @@ export default function TodoApp() {
 
         {/* Cabeçalho estilo "Notas" */}
         <div className="flex items-center justify-between mb-4 px-1">
-          <h1 className="text-2xl font-semibold text-blue-900">Tarefas</h1>
+          <h1 className="text-2xl font-semibold text-blue-900">To do List</h1>
           <span className="text-sm text-blue-500">{remainingCount} pendente(s)</span>
         </div>
 
@@ -166,7 +166,7 @@ export default function TodoApp() {
         </div>
 
         <p className="text-center text-xs text-blue-300 mt-4">
-          Feito com React + Tailwind CSS
+          Feito com React + Tailwind CSS / By Vitor Paixão
         </p>
       </div>
     </div>
