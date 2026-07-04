@@ -40,7 +40,7 @@ export default function TodoApp() {
     <div className="min-h-screen w-full bg-gradient-to-b from-sky-50 to-blue-100 flex items-start justify-center p-6">
       <div className="w-full max-w-md">
         <div className="flex items-center justify-between mb-4 px-1">
-          <h1 className="text-2xl font-semibold text-blue-900">Tarefas</h1>
+          <h1 className="text-2xl font-semibold text-blue-900">To do List</h1>
           <span className="text-sm text-blue-500">{remainingCount} pendente(s)</span>
         </div>
 
@@ -63,7 +63,9 @@ export default function TodoApp() {
           </ul>
         </div>
 
-        <p className="text-center text-xs text-blue-300 mt-4">Feito com React + Tailwind CSS</p>
+        <p className="text-center text-xs text-blue-300 mt-4">
+          Feito com React + Tailwind CSS
+        </p>
       </div>
     </div>
   );
