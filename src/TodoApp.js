@@ -1,17 +1,35 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import TodoInput from "./TodoInput";
 import FilterTabs from "./FilterTabs";
 import TodoItem from "./TodoItem";
 
 // TodoApp é o componente "pai": ele guarda TODO o estado da aplicação
 // e distribui, via props, pedaços desse estado (e funções) pros filhos.
+const initialTodos = [
+  { id: 1, text: "Aprender useState", completed: true },
+  { id: 2, text: "Estilizar com Tailwind", completed: false },
+  { id: 3, text: "Publicar no portfólio", completed: false },
+];
+
 export default function TodoApp() {
-  const [todos, setTodos] = useState([
-    { id: 1, text: "Aprender useState", completed: true },
-    { id: 2, text: "Estilizar com Tailwind", completed: false },
-    { id: 3, text: "Publicar no portfólio", completed: false },
-  ]);
+  const [todos, setTodos] = useState(() => {
+    const savedTodos = window.localStorage.getItem("todos");
+
+    if (savedTodos) {
+      try {
+        return JSON.parse(savedTodos);
+      } catch {
+        return initialTodos;
+      }
+    }
+
+    return initialTodos;
+  });
   const [filter, setFilter] = useState("all");
+
+  useEffect(() => {
+    window.localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   function addTodo(text) {
     const newTodo = { id: Date.now(), text, completed: false };
